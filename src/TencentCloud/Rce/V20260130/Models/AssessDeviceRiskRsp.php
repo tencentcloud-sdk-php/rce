@@ -18,28 +18,28 @@ namespace TencentCloud\Rce\V20260130\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 环境风险评估返回结果
+ * 设备风险评估基础版返回结果
  *
- * @method DataScore getScore() 获取<p>IP环境风险分信息</p>
- * @method void setScore(DataScore $Score) 设置<p>IP环境风险分信息</p>
- * @method Environment getEnvironment() 获取<p>IP环境基础信息</p>
- * @method void setEnvironment(Environment $Environment) 设置<p>IP环境基础信息</p>
+ * @method DataScore getScore() 获取<p>设备风险分信息</p>
+ * @method void setScore(DataScore $Score) 设置<p>设备风险分信息</p>
+ * @method Device getDevice() 获取<p>设备基础信息</p>
+ * @method void setDevice(Device $Device) 设置<p>设备基础信息</p>
  */
-class AssessEnvironmentRiskRsp extends AbstractModel
+class AssessDeviceRiskRsp extends AbstractModel
 {
     /**
-     * @var DataScore <p>IP环境风险分信息</p>
+     * @var DataScore <p>设备风险分信息</p>
      */
     public $Score;
 
     /**
-     * @var Environment <p>IP环境基础信息</p>
+     * @var Device <p>设备基础信息</p>
      */
-    public $Environment;
+    public $Device;
 
     /**
-     * @param DataScore $Score <p>IP环境风险分信息</p>
-     * @param Environment $Environment <p>IP环境基础信息</p>
+     * @param DataScore $Score <p>设备风险分信息</p>
+     * @param Device $Device <p>设备基础信息</p>
      */
     function __construct()
     {
@@ -59,9 +59,9 @@ class AssessEnvironmentRiskRsp extends AbstractModel
             $this->Score->deserialize($param["Score"]);
         }
 
-        if (array_key_exists("Environment",$param) and $param["Environment"] !== null) {
-            $this->Environment = new Environment();
-            $this->Environment->deserialize($param["Environment"]);
+        if (array_key_exists("Device",$param) and $param["Device"] !== null) {
+            $this->Device = new Device();
+            $this->Device->deserialize($param["Device"]);
         }
     }
 }

@@ -18,28 +18,48 @@ namespace TencentCloud\Rce\V20260130\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 环境风险评估返回结果
+ * 设备风险评估高级版返回结果
  *
- * @method DataScore getScore() 获取<p>IP环境风险分信息</p>
- * @method void setScore(DataScore $Score) 设置<p>IP环境风险分信息</p>
+ * @method Decision getDecision() 获取<p>决策信息</p>
+ * @method void setDecision(Decision $Decision) 设置<p>决策信息</p>
+ * @method DataScore getScore() 获取<p>设备风险分信息</p>
+ * @method void setScore(DataScore $Score) 设置<p>设备风险分信息</p>
+ * @method Device getDevice() 获取<p>设备基础信息</p>
+ * @method void setDevice(Device $Device) 设置<p>设备基础信息</p>
  * @method Environment getEnvironment() 获取<p>IP环境基础信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setEnvironment(Environment $Environment) 设置<p>IP环境基础信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
  */
-class AssessEnvironmentRiskRsp extends AbstractModel
+class AssessDeviceRiskPremiumRsp extends AbstractModel
 {
     /**
-     * @var DataScore <p>IP环境风险分信息</p>
+     * @var Decision <p>决策信息</p>
+     */
+    public $Decision;
+
+    /**
+     * @var DataScore <p>设备风险分信息</p>
      */
     public $Score;
 
     /**
+     * @var Device <p>设备基础信息</p>
+     */
+    public $Device;
+
+    /**
      * @var Environment <p>IP环境基础信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Environment;
 
     /**
-     * @param DataScore $Score <p>IP环境风险分信息</p>
+     * @param Decision $Decision <p>决策信息</p>
+     * @param DataScore $Score <p>设备风险分信息</p>
+     * @param Device $Device <p>设备基础信息</p>
      * @param Environment $Environment <p>IP环境基础信息</p>
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -54,9 +74,19 @@ class AssessEnvironmentRiskRsp extends AbstractModel
         if ($param === null) {
             return;
         }
+        if (array_key_exists("Decision",$param) and $param["Decision"] !== null) {
+            $this->Decision = new Decision();
+            $this->Decision->deserialize($param["Decision"]);
+        }
+
         if (array_key_exists("Score",$param) and $param["Score"] !== null) {
             $this->Score = new DataScore();
             $this->Score->deserialize($param["Score"]);
+        }
+
+        if (array_key_exists("Device",$param) and $param["Device"] !== null) {
+            $this->Device = new Device();
+            $this->Device->deserialize($param["Device"]);
         }
 
         if (array_key_exists("Environment",$param) and $param["Environment"] !== null) {
